@@ -15,9 +15,7 @@ export class ProductService{
         });
       
         if (!res.ok) {
-          if(res.status==401){
-           AuthService.invalidateToken(); // or redirect user for login 
-          } 
+         
           throw new Error("Failed to fetch products");
         }
         return res.json();
