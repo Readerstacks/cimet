@@ -38,7 +38,13 @@ async function authorizeToken(){
         }
         let response= await res.json(); 
         if (response.status == 1) {
-            cookies().set("token",JSON.stringify({token:response.data.token,time:response.data.token_expire_time}),{secure:true});
+            let tokenStrigified = JSON.stringify({
+                                                  token:response.data.token,
+                                                  time:response.data.token_expire_time
+                                                 }
+                                                );
+         
+            cookies().set("token",tokenStrigified),{secure:true});
             return true
         }
         else{
