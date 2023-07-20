@@ -26,7 +26,7 @@ export class AuthService {
             let parseToken = JSON.parse(tokenPayload);
             let t = parseToken.time.split(/[- :]/); // to parse server date to js date, split using  - and :
             // Apply each element to the Date function
-            let expireTime = new Date(Date.UTC(t[0], t[1] - 1, t[2], t[3], t[4], t[5])); // convet js date object timezone UTC
+            let expireTime = new Date((t[0], t[1] - 1, t[2], t[3], t[4], t[5])); // convet js date object timezone UTC
             
             if (expireTime < date) {
                 return false;
